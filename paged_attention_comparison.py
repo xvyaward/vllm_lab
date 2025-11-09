@@ -11,7 +11,7 @@ MODEL_NAME = "NousResearch/Llama-2-7b-hf"       # Llama-2 open model
 PROMPT = "Explain the concept of attention mechanism in transformers."
 
 SAMPLING_PARAMS = SamplingParams(temperature=0.7, max_tokens=256)
-GPU_MEMORY_UTILIZATION = 0.9
+GPU_MEMORY_UTILIZATION = 0.8
 
 def run_inference(use_paged_attention: bool, batch_size: int):
     """
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     # Run
     # ============================================
     results = []
-    for batch_size in [64]:
+    for batch_size in [8]:
         for paged in [True, False]:
             res = run_inference(use_paged_attention=paged, batch_size=batch_size)
             results.append((paged, batch_size, *res))
