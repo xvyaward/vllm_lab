@@ -62,7 +62,7 @@ def run_transformers_inference(batch_size: int):
 def run_vllm_inference(batch_size: int):
     # Model load
     start = time.time()
-    llm = vllm.LLM(model=MODEL_NAME, dtype=torch.float16, gpu_memory_utilization=0.9)
+    llm = vllm.LLM(model=MODEL_NAME, dtype=torch.float16, gpu_memory_utilization=0.8)
     load_time = time.time() - start
     print(f"Model load time: {load_time:.2f}s")
 
