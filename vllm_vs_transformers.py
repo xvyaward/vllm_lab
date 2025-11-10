@@ -87,14 +87,14 @@ if __name__ == '__main__':
     # Run
     # ============================================
     transformers_results = []
-    for batch_size in [8]:
+    for batch_size in [16]:
         res = run_transformers_inference(batch_size=batch_size)
         transformers_results.append((batch_size, *res))
     
     torch.cuda.empty_cache()
     
     vllm_results = []
-    for batch_size in [8]:
+    for batch_size in [16]:
         res = run_vllm_inference(batch_size=batch_size)
         vllm_results.append((batch_size, *res))
     
